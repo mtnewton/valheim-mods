@@ -1,5 +1,4 @@
-﻿# Gravekeeper Plugin for Valheim
-Restores your items from the grave.
+﻿# A collection of Valheim mods.
 
 ## Development
 
@@ -14,4 +13,4 @@ Copy the following folders into the `libs` folder
 
 ### Run
 Build the dll via `Build -> Build Solution`  
-Copy the Gravekeeper.dll file from `<Solution Directory>/bin/Debug/Gravekeeper.dll` into `<Game Direcotry>/BepInEx/plugins/Gravekeeper.dll`  
+Copy the Gravekeeper.dll file from `<Solution Directory>/bin/Debug/<Project>.dll` into `<Game Direcotry>/BepInEx/plugins/`  

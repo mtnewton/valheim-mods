@@ -8,7 +8,6 @@ namespace Gravekeeper
         static void Prefix(out InventoryTracker __state, Inventory __instance, Inventory original)
         {
             __state = new InventoryTracker(__instance, original);
-
         }
 
         static void Postfix(InventoryTracker __state)
