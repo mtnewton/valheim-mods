@@ -1,0 +1,9 @@
+{
+    "name": "BiggerPickupRadius",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/mtnewton/valheim-mods",
+    "description": "Increase your pickup radius (3x by default)",
+    "dependencies": [
+        "denikson-BepInExPack_Valheim-5.4.600"
+    ]
+}
