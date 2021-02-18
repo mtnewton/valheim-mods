@@ -1,11 +1,5 @@
 ﻿# Gravekeeper Plugin for Valheim
-
-Work in progress mod for valheim
-
-Features:  
-🚧 Keep inventory on death  
-❔ Option to only keep equipment on death
-  
+Restores your items from the grave.
 
 ## Development
 

@@ -1,0 +1,9 @@
+{
+    "name": "Gravekeeper",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/mtnewton/valheim-gravekeeper",
+    "description": "Keep your items when you die.",
+    "dependencies": [
+        "denikson-BepInExPack_Valheim-5.4.600"
+    ]
+}

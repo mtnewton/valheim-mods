@@ -4,7 +4,7 @@ using HarmonyLib;
 
 namespace Gravekeeper
 {
-    [BepInPlugin("net.mtnewton.gravekeeper", "Gravekeeper", "0.1")]
+    [BepInPlugin("net.mtnewton.gravekeeper", "Gravekeeper", "1.0.0")]
     public class GravekeeperPlugin : BaseUnityPlugin
     {
         private static ManualLogSource manualLogSource;
