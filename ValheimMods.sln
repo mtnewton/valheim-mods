@@ -7,20 +7,32 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gravekeeper", "Gravekeeper\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiggerPickupRadius", "BiggerPickupRadius\BiggerPickupRadius.csproj", "{5BE87E6F-506B-4810-B0C5-C014204BFA0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemStacks", "ItemStacks\ItemStacks.csproj", "{B9020F6F-C5EA-4F1A-A114-AD1A1FE1F44C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Local|Any CPU = Local|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{FD8393C0-8DA6-4299-971C-37B2DE9F5B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FD8393C0-8DA6-4299-971C-37B2DE9F5B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD8393C0-8DA6-4299-971C-37B2DE9F5B1D}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{FD8393C0-8DA6-4299-971C-37B2DE9F5B1D}.Local|Any CPU.Build.0 = Local|Any CPU
 		{FD8393C0-8DA6-4299-971C-37B2DE9F5B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD8393C0-8DA6-4299-971C-37B2DE9F5B1D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5BE87E6F-506B-4810-B0C5-C014204BFA0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5BE87E6F-506B-4810-B0C5-C014204BFA0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BE87E6F-506B-4810-B0C5-C014204BFA0C}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{5BE87E6F-506B-4810-B0C5-C014204BFA0C}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{5BE87E6F-506B-4810-B0C5-C014204BFA0C}.Local|Any CPU.Build.0 = Local|Any CPU
 		{5BE87E6F-506B-4810-B0C5-C014204BFA0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BE87E6F-506B-4810-B0C5-C014204BFA0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9020F6F-C5EA-4F1A-A114-AD1A1FE1F44C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9020F6F-C5EA-4F1A-A114-AD1A1FE1F44C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9020F6F-C5EA-4F1A-A114-AD1A1FE1F44C}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{B9020F6F-C5EA-4F1A-A114-AD1A1FE1F44C}.Local|Any CPU.Build.0 = Local|Any CPU
+		{B9020F6F-C5EA-4F1A-A114-AD1A1FE1F44C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9020F6F-C5EA-4F1A-A114-AD1A1FE1F44C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

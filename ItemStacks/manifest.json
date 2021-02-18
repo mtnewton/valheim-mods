@@ -1,0 +1,9 @@
+{
+    "name": "ItemStacks",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/mtnewton/valheim-mods",
+    "description": "Increases item stack size and reduces item weight",
+    "dependencies": [
+        "denikson-BepInExPack_Valheim-5.4.600"
+    ]
+}
