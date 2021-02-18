@@ -34,7 +34,7 @@
     <OutputPath>bin\Local\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
@@ -92,4 +92,7 @@
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Local copy "$(TargetDir)Gravekeeper.dll" "D:\Program Files\SteamLibrary\steamapps\common\Valheim\BepInEx\plugins" /y</PostBuildEvent>
+  </PropertyGroup>
 </Project>
