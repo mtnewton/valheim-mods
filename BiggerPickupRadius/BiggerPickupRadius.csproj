@@ -93,6 +93,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Local copy "$(TargetDir)Gravekeeper.dll" "D:\Program Files\SteamLibrary\steamapps\common\Valheim\BepInEx\plugins" /y</PostBuildEvent>
+    <PostBuildEvent>if $(ConfigurationName) == Local copy "$(TargetDir)$BiggerPickupRadius.dll" "D:\Program Files\SteamLibrary\steamapps\common\Valheim\BepInEx\plugins" /y</PostBuildEvent>
   </PropertyGroup>
 </Project>
