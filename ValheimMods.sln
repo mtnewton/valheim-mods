@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemStacks", "ItemStacks\It
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpertMode", "ExpertMode\ExpertMode.csproj", "{4492B07E-FD0A-4934-9672-204650AE7CE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftingStationRange", "CraftingStationRange\CraftingStationRange.csproj", "{CCB2A8CA-A25C-4998-BC4A-EC6F6BDBEBEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,12 @@ Global
 		{4492B07E-FD0A-4934-9672-204650AE7CE4}.Local|Any CPU.Build.0 = Local|Any CPU
 		{4492B07E-FD0A-4934-9672-204650AE7CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4492B07E-FD0A-4934-9672-204650AE7CE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCB2A8CA-A25C-4998-BC4A-EC6F6BDBEBEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCB2A8CA-A25C-4998-BC4A-EC6F6BDBEBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCB2A8CA-A25C-4998-BC4A-EC6F6BDBEBEA}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{CCB2A8CA-A25C-4998-BC4A-EC6F6BDBEBEA}.Local|Any CPU.Build.0 = Local|Any CPU
+		{CCB2A8CA-A25C-4998-BC4A-EC6F6BDBEBEA}.Release|Any CPU.ActiveCfg = Local|Any CPU
+		{CCB2A8CA-A25C-4998-BC4A-EC6F6BDBEBEA}.Release|Any CPU.Build.0 = Local|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
