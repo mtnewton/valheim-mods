@@ -7,8 +7,8 @@ As a reference, the game default for the stations is 20.
 
 ## Installation
 1. Download and install [BepInEx Valheim](https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/])
-2. Download this mod and move the `ItemStacks.dll` into `<GameLoation>\BepInEx\plugins`
-3. Launching the game will generate a config file at `<GameLoation>\BepInEx\plugins`
+2. Download this mod and move the `CraftingStationRange.dll` into `<GameLocation>\BepInEx\plugins`
+3. Launching the game will generate a config file at `<GameLocation>\BepInEx\plugins`
 
 ## Configuration
 `<GameLoacation>/BepInEx/config/net.mtnewton.craftingstationrange.cfg`

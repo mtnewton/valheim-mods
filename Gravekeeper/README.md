@@ -4,8 +4,8 @@ Keep your items when you die.
 
 ## Installation
 1. Download and install [BepInEx Valheim](https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/])
-2. Download this mod and move the `ItemStacks.dll` into `<GameLoation>\BepInEx\plugins`
-3. Launching the game will generate a config file at `<GameLoation>\BepInEx\plugins`
+2. Download this mod and move the `Gravekeeper.dll` into `<GameLocation>\BepInEx\plugins`
+3. Launching the game will generate a config file at `<GameLocation>\BepInEx\plugins`
 
 ## Changelog
 - v1.1.0
