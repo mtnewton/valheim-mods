@@ -1,8 +1,11 @@
 # ExpertMode Plugin for Valheim
-Enemies spawn at the specified level.
+Enemies spawn at the specified level (3 by default). And give loot as if at the specified level (1 by default).
 
 Modifying the `global_level` will change what level all enemies spawn at.
-`<enemyname>_override`, if set above 0, will be used instead of the `gloabl_level` for that enemy.
+`<enemyname>_level_override`, if set above 0, will be used instead of the `gloabl_level` for that enemy.
+
+Modifying the `global_loot_level` will change what level all enemies will drop loot as.
+`<enemyname>_loot_level_override`, if set above 0, will be used instead of the `gloabl_loot_level` for that enemy.
 
 Enemy overrides are added dynamically to the config when they are encountered in game. 
 Overrides can be added manually if the enemy name is known.
@@ -15,6 +18,12 @@ and so on.
 
 The visual indicator of stars and enemy looks revert back to the original after exceeding level 3.
 
+While the defaults result in a more difficult game, it is possible to modify the configs to result in an EasyMode.
+Set the gloabl_level to 1 so all enemies spawn at 0 stars.
+Set the global_loot_level to 3 so enemies drop loot as if they were 2 stars.
+
+Be careful of high loot levels, items spawn individually instead of in stacks. Try to stay below 5.
+
 ## Installation
 1. Download and install [BepInEx Valheim](https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/)
 2. Download this mod and move the `ExpertMode.dll` into `<GameLocation>\BepInEx\plugins`
@@ -26,40 +35,41 @@ The visual indicator of stars and enemy looks revert back to the original after 
 [ExpertMode.Global]
 
 ## What level should enemies be? Stars = Level - 1
-# Setting type: UInt32
+# Setting type: Int32
 # Default value: 3
 global_level = 3
 
+## When enemies drop loot, they should act as if they are this level. Game default would be same as global_level
+# Setting type: Int32
+# Default value: 1
+global_loot_level = 1
 
-[ExpertMode.EnemyOverrides]
 
-## Set above 0 to use this value instead of global_level for this enemy.
-# Setting type: UInt32
-# Default value: 0
-greydwarfshaman_override = 0
+[ExpertMode.EnemyLevelOverrides]
 
-## Set above 0 to use this value instead of global_level for this enemy.
-# Setting type: UInt32
-# Default value: 0
-greydwarf_override = 0
+greydwarfbrute_level_override = 0
 
-## Set above 0 to use this value instead of global_level for this enemy.
-# Setting type: UInt32
-# Default value: 0
-greydwarfbrute_override = 0
+greydwarf_level_override = 0
 
-## Set above 0 to use this value instead of global_level for this enemy.
-# Setting type: UInt32
-# Default value: 0
-skeleton_override = 0
+...
+
+
+[ExpertMode.EnemyLootLevelOverrides]
+
+greydwarfbrute_loot_level_override = 0
+
+greydwarf_loot_level_override = 0
 
 ...
 ```
 
 ## Known Issues
 - The visual indicator of stars and enemy looks revert back to the original after exceeding level 3.
-
+- High loot level cause lag before items combine. Try to stay below 5.
+- 
 ## Changelog
+- v1.1.0
+  - added config for enemy loot level, default to 1 to give same loot as if they were 0 stars
 - v1.0.3
   - update readme - config path - typos
 - v1.0.2
