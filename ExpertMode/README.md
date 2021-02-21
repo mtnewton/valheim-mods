@@ -16,7 +16,7 @@ and so on.
 The visual indicator of stars and enemey looks revert back to the original after exceeding level 3.
 
 ## Installation
-1. Download and install [BepInEx Valheim](https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/])
+1. Download and install [BepInEx Valheim](https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/)
 2. Download this mod and move the `ExpertMode.dll` into `<GameLocation>\BepInEx\plugins`
 3. Launching the game will generate a config file at `<GameLoation>\BepInEx\plugins`
 
@@ -33,20 +33,25 @@ global_level = 3
 
 [ExpertMode.EnemyOverrides]
 
-## Set above 0 to use this value instead of GlobalLevel for this enemy.  Stars = Level - 1
+## Set above 0 to use this value instead of global_level for this enemy.
 # Setting type: UInt32
 # Default value: 0
-boar_override = 0
+greydwarfshaman_override = 0
 
-## Set above 0 to use this value instead of GlobalLevel for this enemy.  Stars = Level - 1
+## Set above 0 to use this value instead of global_level for this enemy.
 # Setting type: UInt32
 # Default value: 0
-greyling_override = 0
+greydwarf_override = 0
 
-## Set above 0 to use this value instead of GlobalLevel for this enemy.  Stars = Level - 1
+## Set above 0 to use this value instead of global_level for this enemy.
 # Setting type: UInt32
 # Default value: 0
-deer_override = 0
+greydwarfbrute_override = 0
+
+## Set above 0 to use this value instead of global_level for this enemy.
+# Setting type: UInt32
+# Default value: 0
+skeleton_override = 0
 
 ...
 ```

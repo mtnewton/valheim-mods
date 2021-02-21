@@ -10,7 +10,7 @@ You must join a world for it to create the configs.
 You may choose to enable/disable the stack size or weight modification by setting the respective enabled flag.
 
 ## Installation
-1. Download and install [BepInEx Valheim](https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/])
+1. Download and install [BepInEx Valheim](https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/)
 2. Download this mod and move the `ItemStacks.dll` into `<GameLocation>\BepInEx\plugins`
 3. Launching the game and joining a world will generate a config file at `<GameLocation>\BepInEx\plugins`
 
