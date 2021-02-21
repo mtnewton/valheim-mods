@@ -51,6 +51,8 @@ amberpearl_weight = 0.01
 ```
 
 ## Changelog
+- v1.1.1
+  - fix readme typos
 - v1.1.0
   - readme changes - installation steps and changelog
   - refactor code for simplification

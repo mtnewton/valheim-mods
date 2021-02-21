@@ -13,7 +13,7 @@ namespace BiggerPickupRadius
 
         const string NAME = "BiggerPickupRadius";
 
-        const string VERSION = "1.1.1";
+        const string VERSION = "1.1.2";
 
         private static ManualLogSource logger;
 

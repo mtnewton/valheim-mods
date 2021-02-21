@@ -8,6 +8,8 @@ Keep your items when you die.
 3. Launching the game will generate a config file at `<GameLocation>\BepInEx\plugins`
 
 ## Changelog
+- v1.1.1
+  - fix readme dll name and typos
 - v1.1.0
   - readme changes - installation steps and changelog
   - refactor code for simplification

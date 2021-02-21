@@ -55,6 +55,8 @@ deer_override = 0
 - The visual indicator of stars and enemey looks revert back to the original after exceeding level 3.
 
 ## Changelog
+- v1.0.2
+  - fix readme dll name and typos
 - v1.0.1
   - readme changes - installation steps, known issues, and changelog
   - const for mod name, fix logging wrong mod name on load

@@ -18,6 +18,11 @@ Radius = 6
 ```
 
 ## Changelog
+- v1.1.2
+  - updated changelog
+- v1.1.1
+  - fix readme dll name and typos
+  - update mod version in files... but forgot to add changelog for version
 - v1.1.0
   - pickup radius is now set to a configurable value instead of being multiplied
   - refactor code for simplification

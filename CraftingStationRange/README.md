@@ -39,6 +39,8 @@ $piece_artisanstation = 0
 - When set to unlimited range, a crafting station must still be loaded by the game. Walking far away from a station will casue it to unload.
 
 ## Changelog
+- v1.0.2
+  - fix readme dll name and typos
 - v1.0.1
   - readme changes - installation steps, known issues, and changelog
 - v1.0.0
