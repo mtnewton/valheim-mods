@@ -5,38 +5,39 @@ using HarmonyLib;
 
 namespace BiggerPickupRadius
 {
-    [BepInPlugin("net.mtnewton.biggerpickupradius", "BiggerPickupRadius", "1.0.0")]
+    [BepInPlugin(GUID, NAME, VERSION)]
+    [HarmonyPatch]
     public class BiggerPickupRadiusPlugin : BaseUnityPlugin
     {
-        private static ManualLogSource manualLogSource;
+        const string GUID = "net.mtnewton.biggerpickupradius";
 
-        private static ConfigEntry<uint> radiusMultiplier;
+        const string NAME = "BiggerPickupRadius";
+
+        const string VERSION = "1.1.0";
+
+        private static ManualLogSource logger;
+
+        private static ConfigEntry<uint> radius;
 
         void Awake()
         {
-            manualLogSource = Logger;
+            logger = Logger;
 
-            radiusMultiplier = Config.Bind(
-                "BiggerPickupRadius",
-                "RadiusMultiplier",
-                (uint) 3,
-                "What to multiply the player auto pickup radius by."
-            );
+            radius = Config.Bind(NAME, "Radius", (uint) 6, "Player pickup radius. Game default is 2");
 
-            Harmony harmony = new Harmony("mod.biggerpickupradius");
+            Harmony harmony = new Harmony(GUID);
             harmony.PatchAll();
 
-            Log("BiggerPickupRadius loaded.");
+            logger.LogInfo(NAME + " loaded.");
         }
 
-        public static uint getRadiusMultiplier() 
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(Player), "Awake")]
+        static void SetPickupRadius(Player __instance)
         {
-            return radiusMultiplier.Value;    
-        }
-
-        public static void Log(object data, LogLevel level = LogLevel.Info)
-        {
-            manualLogSource.Log(level, data);
+            logger.LogInfo(__instance.m_autoPickupRange);
+            __instance.m_autoPickupRange = radius.Value;
+            logger.LogInfo("Player pickup range set to " + radius.Value) ;
         }
     }
 }

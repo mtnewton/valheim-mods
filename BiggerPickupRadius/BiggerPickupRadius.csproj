@@ -75,7 +75,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BiggerPickupRadiusPlugin.cs" />
-    <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +92,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Local copy "$(TargetDir)$BiggerPickupRadius.dll" "D:\Program Files\SteamLibrary\steamapps\common\Valheim\BepInEx\plugins" /y</PostBuildEvent>
+    <PostBuildEvent>if $(ConfigurationName) == Local copy "$(TargetDir)BiggerPickupRadius.dll" "D:\Program Files\SteamLibrary\steamapps\common\Valheim\BepInEx\plugins" /y</PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -374,7 +374,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Inventory.cs" />
     <Compile Include="GravekeeperPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

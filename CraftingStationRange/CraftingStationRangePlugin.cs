@@ -15,7 +15,7 @@ namespace CraftingStationRange
 
         const string NAME = "CraftingStationRange";
 
-        const string VERSION = "1.0.0";
+        const string VERSION = "1.0.1";
 
         private static ConfigFile config;
 

@@ -6,13 +6,15 @@ using System.Collections.Generic;
 
 namespace ExpertMode
 {
-    [BepInPlugin(GUID, "ExpertMode", VERSION)]
+    [BepInPlugin(GUID, NAME, VERSION)]
     [HarmonyPatch]
     public class ExpertModePlugin : BaseUnityPlugin
     {
         private const string GUID = "net.mtnewton.expertmode";
 
-        private const string VERSION = "1.0.0";
+        private const string NAME = "ExpertMode";
+
+        private const string VERSION = "1.0.1";
 
         private static ManualLogSource logger;
 
@@ -27,12 +29,12 @@ namespace ExpertMode
             logger = Logger;
             config = Config;
 
-            globalStarIncrease = Config.Bind("ExpertMode.Global", "global_level", (uint)3, "What level should enemies be? Stars = Level - 1");
+            globalStarIncrease = Config.Bind(NAME + ".Global", "global_level", (uint)3, "What level should enemies be? Stars = Level - 1");
 
             Harmony harmony = new Harmony(GUID);
             harmony.PatchAll();
 
-            logger.LogInfo("ItemStacks loaded.");
+            logger.LogInfo(NAME + " loaded.");
         }
 
         [HarmonyPostfix]
@@ -44,7 +46,7 @@ namespace ExpertMode
                 string enemyName = __instance.m_name.Substring(7, __instance.m_name.Length - 7);
                 uint level = GetLevelForEnemy(enemyName);
                 __instance.SetLevel((int)level);
-                logger.LogInfo(enemyName + "Loaded. Setting to level " + level + " (" + (level - 1) + " stars)");
+                logger.LogInfo(enemyName + " Loaded. Setting to level " + level + " (" + (level - 1) + " stars)");
             }
         }
 
@@ -52,7 +54,7 @@ namespace ExpertMode
         {
             KeyValuePair<string, ConfigEntry<uint>> enemyOverride = new KeyValuePair<string, ConfigEntry<uint>>(
                 enemyName,
-                config.Bind("ExpertMode.EnemyOverrides", enemyName + "_override", (uint)0, "Set above 0 to use this value instead of global_level for this enemy.")
+                config.Bind(NAME + ".EnemyOverrides", enemyName + "_override", (uint)0, "Set above 0 to use this value instead of global_level for this enemy.")
             );
             enemyOverrides.Add(enemyOverride);
             return enemyOverride;

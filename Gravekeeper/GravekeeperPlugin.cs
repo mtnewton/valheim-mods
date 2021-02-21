@@ -4,22 +4,52 @@ using HarmonyLib;
 
 namespace Gravekeeper
 {
-    [BepInPlugin("net.mtnewton.gravekeeper", "Gravekeeper", "1.0.1")]
+    [BepInPlugin(GUID, NAME, VERSION)]
+    [HarmonyPatch]
     public class GravekeeperPlugin : BaseUnityPlugin
     {
-        private static ManualLogSource manualLogSource;
+        private const string GUID = "net.mtnewton.gravekeeper";
+
+        private const string NAME = "Gravekeeper";
+
+        private const string VERSION = "1.1.0";
+
+        private static ManualLogSource logger;
+
         void Awake()
         {
-            manualLogSource = Logger;
-            Log("Gravekeeper loaded.");
+            logger = Logger;
 
-            var harmony = new Harmony("mod.gravekeeper");
+            var harmony = new Harmony(GUID);
             harmony.PatchAll();
+
+            logger.LogInfo(NAME + " loaded.");
         }
 
-        public static void Log(object data, LogLevel level = LogLevel.Info)
+        [HarmonyPrefix]
+        [HarmonyPatch(typeof(Inventory), "MoveInventoryToGrave")]
+        static void SaveInventory(out InventoryTracker __state, Inventory __instance, Inventory original)
         {
-            manualLogSource.Log(level, data);
+            __state = new InventoryTracker(__instance, original);
         }
+
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(Inventory), "MoveInventoryToGrave")]
+        static void RestoreInventory(InventoryTracker __state)
+        {
+            __state.PlayerInventory.MoveAll(__state.GraveInventory);
+            logger.LogInfo(__state.PlayerInventory.GetAllItems().Count + " items recovered.");
+        }
+    }
+
+    class InventoryTracker
+    {
+        public InventoryTracker(Inventory graveInventory, Inventory playerInventory)
+        {
+            GraveInventory = graveInventory;
+            PlayerInventory = playerInventory;
+        }
+        public Inventory GraveInventory { get; set; }
+        public Inventory PlayerInventory { get; set; }
     }
 }
