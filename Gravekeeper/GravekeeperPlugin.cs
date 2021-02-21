@@ -12,7 +12,7 @@ namespace Gravekeeper
 
         private const string NAME = "Gravekeeper";
 
-        private const string VERSION = "1.1.0";
+        private const string VERSION = "1.1.1";
 
         private static ManualLogSource logger;
 

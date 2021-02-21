@@ -1,6 +1,6 @@
 {
     "name": "ItemStacks",
-    "version_number": "1.1.0",
+    "version_number": "1.1.1",
     "website_url": "https://github.com/mtnewton/valheim-mods",
     "description": "Increases item stack size and reduces item weight",
     "dependencies": [

@@ -1,6 +1,6 @@
 {
     "name": "CraftingStationRange",
-    "version_number": "1.0.1",
+    "version_number": "1.0.2",
     "website_url": "https://github.com/mtnewton/valheim-mods",
     "description": "Unlimited range for crafting stations. Or configure a custom range.",
     "dependencies": [
