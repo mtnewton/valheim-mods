@@ -51,6 +51,8 @@ amberpearl_weight = 0.01
 ```
 
 ## Changelog
+- v1.1.3
+  - item weight toggle was using wrong config value
 - v1.1.2
   - update readme, config path
 - v1.1.1

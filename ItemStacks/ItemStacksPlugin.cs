@@ -15,7 +15,7 @@ namespace ItemStacks
 
         private const string NAME = "ItemStacks";
 
-        private const string VERSION = "1.1.2";
+        private const string VERSION = "1.1.3";
 
         private static ManualLogSource logger;
 
@@ -59,7 +59,7 @@ namespace ItemStacks
                             logger.LogInfo(itemName + " - max stack size set to " + item.m_itemData.m_shared.m_maxStackSize);
                         }
 
-                        if (stackSizeEnabled.Value)
+                        if (weightEnabled.Value)
                         {
                             ConfigEntry<float> itemWeightConfig = config.Bind(NAME + ".ItemWeight", itemName + "_weight", item.m_itemData.m_shared.m_weight * 0.1f);
                             item.m_itemData.m_shared.m_weight = itemWeightConfig.Value;
