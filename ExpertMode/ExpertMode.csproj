@@ -111,4 +111,7 @@
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Local copy "$(TargetDir)ExpertMode.dll" "D:\Program Files\SteamLibrary\steamapps\common\Valheim\BepInEx\plugins" /y</PostBuildEvent>
   </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>if $(ConfigurationName) == Local copy "$(TargetDir)..\..\..\LICENSE" "$(TargetDir)" /y</PreBuildEvent>
+  </PropertyGroup>
 </Project>
