@@ -12,7 +12,7 @@ You may choose to enable/disable the stack size or weight modification by settin
 ## Installation
 1. Download and install [BepInEx Valheim](https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/)
 2. Download this mod and move the `ItemStacks.dll` into `<GameLocation>\BepInEx\plugins`
-3. Launching the game and joining a world will generate a config file at `<GameLocation>\BepInEx\plugins`
+3. Launching the game and joining a world will generate a config file at `<GameLocation>\BepInEx\config`
 
 ## Configuration
 `<GameLoacation>/BepInEx/config/net.mtnewton.itemstacks.cfg`
@@ -51,6 +51,8 @@ amberpearl_weight = 0.01
 ```
 
 ## Changelog
+- v1.1.2
+  - update readme, config path
 - v1.1.1
   - fix readme typos
 - v1.1.0

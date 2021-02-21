@@ -13,12 +13,12 @@ Level 2 = 1 Stars
 Level 3 = 2 Stars
 and so on.
 
-The visual indicator of stars and enemey looks revert back to the original after exceeding level 3.
+The visual indicator of stars and enemy looks revert back to the original after exceeding level 3.
 
 ## Installation
 1. Download and install [BepInEx Valheim](https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/)
 2. Download this mod and move the `ExpertMode.dll` into `<GameLocation>\BepInEx\plugins`
-3. Launching the game will generate a config file at `<GameLoation>\BepInEx\plugins`
+3. Launching the game will generate a config file at `<GameLoation>\BepInEx\config`
 
 ## Configuration
 `<GameLoacation>/BepInEx/config/net.mtnewton.expertmode.cfg`
@@ -57,9 +57,11 @@ skeleton_override = 0
 ```
 
 ## Known Issues
-- The visual indicator of stars and enemey looks revert back to the original after exceeding level 3.
+- The visual indicator of stars and enemy looks revert back to the original after exceeding level 3.
 
 ## Changelog
+- v1.0.3
+  - update readme - config path - typos
 - v1.0.2
   - fix readme dll name and typos
 - v1.0.1

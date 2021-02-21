@@ -15,7 +15,7 @@ namespace ItemStacks
 
         private const string NAME = "ItemStacks";
 
-        private const string VERSION = "1.1.1";
+        private const string VERSION = "1.1.2";
 
         private static ManualLogSource logger;
 

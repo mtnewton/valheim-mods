@@ -4,7 +4,7 @@ Increase your pickup radius (3x by default)
 ## Installation
 1. Download and install [BepInEx Valheim](https://valheim.thunderstore.io/package/denikson/BepInExPack_Valheim/)
 2. Download this mod and move the `BiggerPickupRadius.dll` into `<GameLocation>\BepInEx\plugins`
-3. Launching the game will generate a config file at `<GameLocation>\BepInEx\plugins`
+3. Launching the game will generate a config file at `<GameLocation>\BepInEx\config`
 
 ## Configuration
 `<GameLoacation>/BepInEx/config/net.mtnewton.biggerpickupradius.cfg`
@@ -18,6 +18,8 @@ Radius = 6
 ```
 
 ## Changelog
+- v1.1.3
+  - update readme - config path
 - v1.1.2
   - updated changelog
 - v1.1.1

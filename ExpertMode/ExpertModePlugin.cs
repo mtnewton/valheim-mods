@@ -14,7 +14,7 @@ namespace ExpertMode
 
         private const string NAME = "ExpertMode";
 
-        private const string VERSION = "1.0.2";
+        private const string VERSION = "1.0.3";
 
         private static ManualLogSource logger;
 
