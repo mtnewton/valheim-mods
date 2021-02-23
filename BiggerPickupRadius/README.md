@@ -19,18 +19,18 @@ Radius = 6
 
 ## Changelog
 - v1.1.3
-  - update readme - config path
+    - update readme - config path
 - v1.1.2
-  - updated changelog
+    - updated changelog
 - v1.1.1
-  - fix readme dll name and typos
-  - update mod version in files... but forgot to add changelog for version
+    - fix readme dll name and typos
+    - update mod version in files... but forgot to add changelog for version
 - v1.1.0
-  - pickup radius is now set to a configurable value instead of being multiplied
-  - refactor code for simplification
+    - pickup radius is now set to a configurable value instead of being multiplied
+    - refactor code for simplification
 - v1.0.0
-  - initial mod creation
-  - radius is multiplied by a configurable value (default 3x)
+    - initial mod creation
+    - radius is multiplied by a configurable value (default 3x)
 
 ## Source Code
 https://github.com/mtnewton/valheim-mods/tree/master/BiggerPickupRadius

@@ -52,17 +52,17 @@ amberpearl_weight = 0.01
 
 ## Changelog
 - v1.1.3
-  - item weight toggle was using wrong config value
+    - item weight toggle was using wrong config value
 - v1.1.2
-  - update readme, config path
+    - update readme, config path
 - v1.1.1
-  - fix readme typos
+    - fix readme typos
 - v1.1.0
-  - readme changes - installation steps and changelog
-  - refactor code for simplification
+    - readme changes - installation steps and changelog
+    - refactor code for simplification
 - v1.0.0
-  - initial mod creation
-  - configurable item stack size and item weight (defaults to 10x base item stack size and 0.1x item weight)
+    - initial mod creation
+    - configurable item stack size and item weight (defaults to 10x base item stack size and 0.1x item weight)
 
 ## Source Code
 https://github.com/mtnewton/valheim-mods/tree/master/ItemStacks

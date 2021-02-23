@@ -69,17 +69,17 @@ greydwarf_loot_level_override = 0
 - 
 ## Changelog
 - v1.1.0
-  - added config for enemy loot level, default to 1 to give same loot as if they were 0 stars
+    - added config for enemy loot level, default to 1 to give same loot as if they were 0 stars
 - v1.0.3
-  - update readme - config path - typos
+    - update readme - config path - typos
 - v1.0.2
-  - fix readme dll name and typos
+    - fix readme dll name and typos
 - v1.0.1
-  - readme changes - installation steps, known issues, and changelog
-  - const for mod name, fix logging wrong mod name on load
+    - readme changes - installation steps, known issues, and changelog
+    - const for mod name, fix logging wrong mod name on load
 - v1.0.0
-  - initial mod creation
-  - all enemies spawn at 2 stars by default, configurable.
+    - initial mod creation
+    - all enemies spawn at 2 stars by default, configurable.
 
 ## Source Code
 https://github.com/mtnewton/valheim-mods/tree/master/ExpertMode

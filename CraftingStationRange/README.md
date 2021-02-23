@@ -40,14 +40,14 @@ $piece_artisanstation = 0
 
 ## Changelog
 - v1.0.3
-  - update readme - config path
+    - update readme - config path
 - v1.0.2
-  - fix readme dll name and typos
+    - fix readme dll name and typos
 - v1.0.1
-  - readme changes - installation steps, known issues, and changelog
+    - readme changes - installation steps, known issues, and changelog
 - v1.0.0
-  - initial mod creation
-  - each crafting station can be configured to have a specific range (default is unlimited)
+    - initial mod creation
+    - each crafting station can be configured to have a specific range (default is unlimited)
 
 ## Source Code
 https://github.com/mtnewton/valheim-mods/tree/master/CraftingStationRange

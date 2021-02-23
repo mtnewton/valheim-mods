@@ -51,6 +51,7 @@
     </Reference>
     <Reference Include="assembly_valheim_publicized">
       <HintPath>D:\Program Files\SteamLibrary\steamapps\common\Valheim\valheim_Data\Managed\publicized_assemblies\assembly_valheim_publicized.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="BepInEx">
       <HintPath>..\libs\core\BepInEx.dll</HintPath>
@@ -62,9 +63,11 @@
     </Reference>
     <Reference Include="BepInEx.Preloader">
       <HintPath>..\libs\core\BepInEx.Preloader.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="HarmonyXInterop">
       <HintPath>..\libs\core\HarmonyXInterop.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
