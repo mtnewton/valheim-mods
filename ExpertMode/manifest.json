@@ -1,8 +1,8 @@
 {
     "name": "ExpertMode",
-    "version_number": "1.1.0",
+    "version_number": "1.2.0",
     "website_url": "https://github.com/mtnewton/valheim-mods",
-    "description": "All enemies spawn at 2 stars and drop loot as if 0 stars. EasyMode possible in configs.",
+    "description": "All enemies spawn at 2 stars and drop loot as if 0 stars. EasyMode possible in configs. Can target specific enemies.",
     "dependencies": [
         "denikson-BepInExPack_Valheim-5.4.600"
     ]

@@ -35,7 +35,6 @@ namespace BiggerPickupRadius
         [HarmonyPatch(typeof(Player), "Awake")]
         static void SetPickupRadius(Player __instance)
         {
-            logger.LogInfo(__instance.m_autoPickupRange);
             __instance.m_autoPickupRange = radius.Value;
             logger.LogInfo("Player pickup range set to " + radius.Value) ;
         }

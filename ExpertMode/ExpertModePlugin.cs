@@ -2,9 +2,7 @@
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
-using System;
 using System.Collections.Generic;
-using System.Reflection;
 
 namespace ExpertMode
 {
@@ -16,7 +14,7 @@ namespace ExpertMode
 
         private const string NAME = "ExpertMode";
 
-        private const string VERSION = "1.1.0";
+        private const string VERSION = "1.2.0";
 
         private static ManualLogSource logger;
 
@@ -33,8 +31,24 @@ namespace ExpertMode
             logger = Logger;
             config = Config;
 
-            globalLevel = Config.Bind(NAME + ".Global", "global_level", 3, "What level should enemies be? Stars = Level - 1");
-            globalLootLevel = Config.Bind(NAME + ".Global", "global_loot_level", 1, "When enemies drop loot, they should act as if they are this level. Game default would be same as global_level");
+            globalLevel = Config.Bind(NAME + ".Global", "global_level", 3,
+                new ConfigDescription(
+                    "What level should enemies be? \n" + 
+                    "0 prevents changing levels unless the specific enemy has a level override above 0. \n" + 
+                    "Stars = Level - 1",
+                    new AcceptableValueRange<int>(0, int.MaxValue)
+                )
+            );
+
+            globalLootLevel = Config.Bind(NAME + ".Global", "global_loot_level", 1,
+                new ConfigDescription(
+                    "When enemies drop loot, they should act as if they are this level. \n" +
+                    "0 prevents changing loot levels unless the specific enemy has an loot level override above 0. \n" + 
+                    "Be careful with higher values. Suggest staying below 5.\n" +
+                    "Game default would be same as global_level",
+                    new AcceptableValueRange<int>(0, int.MaxValue)
+                )
+            );
 
             Harmony harmony = new Harmony(GUID);
             harmony.PatchAll();
@@ -49,9 +63,12 @@ namespace ExpertMode
             if (__instance.m_name.StartsWith("$enemy_"))
             {
                 string enemyName = __instance.m_name.Substring(7, __instance.m_name.Length - 7);
-                int level = Math.Max(1, GetLevelForEnemy(enemyName));
-                __instance.SetLevel(level);
-                logger.LogInfo(enemyName + " Loaded. Setting to level " + level + " (" + (level - 1) + " stars)");
+                int level = GetLevelForEnemy(enemyName);
+                if (level > 0)
+                {
+                    __instance.SetLevel(level);
+                    logger.LogInfo(enemyName + " Loaded. Setting to level " + level + " (" + (level - 1) + " stars)");
+                }
             }
         }
 
@@ -62,9 +79,12 @@ namespace ExpertMode
             if (__instance.m_character.m_name.StartsWith("$enemy_"))
             {
                 string enemyName = __instance.m_character.m_name.Substring(7, __instance.m_character.m_name.Length - 7);
-                int level = Math.Max(1, GetLootLevelForEnemy(enemyName));
-                __instance.m_character.m_level = level;
-                logger.LogInfo("Setting " + enemyName + " to level " + level + " before it generates drops");
+                int level = GetLootLevelForEnemy(enemyName);
+                if (level > 0)
+                {
+                    __instance.m_character.m_level = level;
+                    logger.LogInfo("Setting " + enemyName + " to level " + level + " before it generates drops");
+                }
             }
         }
 
@@ -106,7 +126,13 @@ namespace ExpertMode
         {
             KeyValuePair<string, ConfigEntry<int>> enemyLevelOverride = new KeyValuePair<string, ConfigEntry<int>>(
                 enemyName,
-                config.Bind(NAME + ".EnemyLevelOverrides", enemyName + "_level_override", 0)
+                config.Bind(NAME + ".EnemyLevelOverrides", enemyName + "_level_override", 0,
+                    new ConfigDescription(
+                        "What level should " + enemyName + "(s) spawn at? \n" +
+                        "Set above 0 to override the global_level for " + enemyName + "(s) only. \n",
+                        new AcceptableValueRange<int>(0, int.MaxValue)
+                    )
+                )
             );
             enemyLevelOverrides.Add(enemyLevelOverride);
             return enemyLevelOverride;
@@ -116,7 +142,14 @@ namespace ExpertMode
         {
             KeyValuePair<string, ConfigEntry<int>> enemyLootLevelOverride = new KeyValuePair<string, ConfigEntry<int>>(
                 enemyName,
-                config.Bind(NAME + ".EnemyLootLevelOverrides", enemyName + "_loot_level_override", 0)
+                config.Bind(NAME + ".EnemyLootLevelOverrides", enemyName + "_loot_level_override", 0,
+                    new ConfigDescription(
+                        "When " + enemyName + "(s) are killed, loot should drop as if they were this level. \n" +
+                        "Set above 0 to override the global_loot_level value for " + enemyName + "(s) only. \n" +
+                        "Be careful with higher values. Suggest staying below 5.",
+                        new AcceptableValueRange<int>(0, int.MaxValue)
+                    )
+                )
             );
             enemyLootLevelOverrides.Add(enemyLootLevelOverride);
             return enemyLootLevelOverride;
