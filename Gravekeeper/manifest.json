@@ -1,8 +1,8 @@
 {
     "name": "Gravekeeper",
-    "version_number": "1.2.0",
+    "version_number": "2.0.0",
     "website_url": "https://github.com/mtnewton/valheim-mods",
-    "description": "Keep your items when you die.",
+    "description": "Configure to choose what is keep on death. Creates graves for larger inventories.",
     "dependencies": [
         "denikson-BepInExPack_Valheim-5.4.600"
     ]
