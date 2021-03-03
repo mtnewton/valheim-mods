@@ -87,8 +87,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GravePatch.cs" />
-    <Compile Include="KeepInventoryPatch.cs" />
+    <Compile Include="KeepInventory.cs" />
+    <Compile Include="Grave.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="GravekeeperPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

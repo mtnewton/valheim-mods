@@ -1,13 +1,39 @@
 ﻿using BepInEx.Configuration;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Gravekeeper
 {
     class Settings
-    { 
+    {
+        private static ItemDrop.ItemData EmptyGraveItem = null;
+
         public static void Init(ConfigFile config)
         {
             KeepInventory.Init(config);
             Grave.Init(config);
+        }
+
+        public static ItemDrop.ItemData GetStoneItemData()
+        {
+            if (EmptyGraveItem != null)
+            {
+                return EmptyGraveItem.Clone();
+            }
+
+            List<ItemDrop> items = ObjectDB.m_instance.GetAllItems(ItemDrop.ItemData.ItemType.Material, "Stone");
+            foreach (ItemDrop item in items)
+            {
+                if (item.m_itemData.m_shared.m_name == "$item_stone")
+                {
+                    string prefabName = item.GetPrefabName(item.gameObject.name);
+                    GameObject itemPrefab = ObjectDB.instance.GetItemPrefab(prefabName);
+                    item.m_itemData.m_dropPrefab = itemPrefab;
+                    EmptyGraveItem = item.m_itemData;
+                    break;
+                }
+            }
+            return EmptyGraveItem.Clone();
         }
 
         public class KeepInventory
@@ -23,14 +49,13 @@ namespace Gravekeeper
             {
                 string name = "KeepInventory";
 
-                Enabled = config.Bind(name, "Enabled", false,
+                Enabled = config.Bind(name, "Enabled", true,
                     "Should Gravekeeper modify what is kept on death?\n" +
                     "Turn on the below options to change what is kept on death."
                 );
 
                 KeepAll = config.Bind(name, "KeepAll", true,
-                    "Keep all items on death.\n" +
-                    "Grave will dissapear when empty unless [Grave] KeepGrave is true"
+                    "Keep all items on death."
                 );
 
                 KeepHotbar = config.Bind(name, "KeepHotbar", false,
@@ -58,26 +83,25 @@ namespace Gravekeeper
         public class Grave
         {
             public static ConfigEntry<bool> Enabled { get; private set; }
-            public static ConfigEntry<bool> ExtraGraves { get; private set; }
-            public static ConfigEntry<string> ExtraGravesSuffix { get; private set; }
+            public static ConfigEntry<bool> KeepGrave { get; private set; }
+            public static ConfigEntry<bool> DeleteItems { get; private set; }
+            public static int GraveWidth = 8;
+            public static int GraveHeight = 4;
 
             public static void Init(ConfigFile config)
             {
                 string name = "Grave";
 
                 Enabled = config.Bind(name, "Enabled", true,
-                    "Should Gravekeeper modify how graves are created?\n" +
-                    "Reccomended to keep true"
+                    "Should Gravekeeper modify how graves are created?"
                 );
 
-                ExtraGraves = config.Bind(name, "ExtraGraves", true,
-                    "If the players inventory (visible or not) is larger than the normal grave inventory\n" +
-                    "should more tombstones be created to hold those items?\n" +
-                    "Reccomended to keep true, otherwise items past the noraml 4 rows could be lost."
+                DeleteItems = config.Bind(name, "DeleteItems", false,
+                    "Whatever is not kept by KeepInventory is deleted before grave creation."
                 );
 
-                ExtraGravesSuffix = config.Bind(name, "ExtraGravesSuffix", "'s Extras",
-                    "If extra graves are created, what should be added to the name?"
+                KeepGrave = config.Bind(name, "KeepGrave", false,
+                    "If no graves are to be created, create one with a stone in it."
                 );
             }
         }

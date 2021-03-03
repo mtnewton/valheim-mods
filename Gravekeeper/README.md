@@ -9,7 +9,9 @@ Configs to change what is kept on death:
 - KeepConsumables
 - KeepAmmo
 
-Spawns extra graves if the first will not hold everything in your inventory. Configurable, but reccomended to keep on.
+Spawns extra graves if the first will not hold everything in your inventory. Configurable, but recommended to keep on.  
+Option to spawn a grave with one stone in it if no graves would have spawned on death.  
+Option to delete all items on death. If KeepInventory is on, those items are still kept.
 
 Both sections can be disabled independently.
 
@@ -21,11 +23,10 @@ Both sections can be disabled independently.
 ## Should Gravekeeper modify what is kept on death?
 ## Turn on the below options to change what is kept on death.
 # Setting type: Boolean
-# Default value: false
-Enabled = false
+# Default value: true
+Enabled = true
 
 ## Keep all items on death.
-## Grave will dissapear when empty unless [Grave] KeepGrave is true
 # Setting type: Boolean
 # Default value: true
 KeepAll = true
@@ -58,22 +59,19 @@ KeepConsumables = false
 [Grave]
 
 ## Should Gravekeeper modify how graves are created?
-## Reccomended to keep true
 # Setting type: Boolean
 # Default value: true
 Enabled = true
 
-## If the players inventory (visible or not) is larger than the normal grave inventory
-## should more tombstones be created to hold those items?
-## Reccomended to keep true, otherwise items past the noraml 4 rows could be lost.
+## Whatever is not kept by KeepInventory is deleted before grave creation.
 # Setting type: Boolean
-# Default value: true
-ExtraGraves = true
+# Default value: false
+DeleteItems = false
 
-## If extra graves are created, what should be added to the name?
-# Setting type: String
-# Default value: \'s Extras
-ExtraGravesSuffix = \'s Extras
+## If no graves are to be created, create one with a stone in it.
+# Setting type: Boolean
+# Default value: false
+KeepGrave = false
 
 ```
 
@@ -83,8 +81,12 @@ ExtraGravesSuffix = \'s Extras
 3. Launching the game will generate a config file at `<GameLocation>\BepInEx\config`
 
 ## Changelog  
+- v2.1.0
+    - added back option to keep grave on death
+    - option to delete items on death - item that match the KeepInventory flags are still kept
+    - KeepInventory Enabled flag was accidentally set to false by default
 - v2.0.0
-    - refoctored code
+    - refactored code
     - new config values - make sure to set them
     - added ability to keep hotbar, equipment, consumables, and ammo. still has keep all option
     - added handling for grave creation
