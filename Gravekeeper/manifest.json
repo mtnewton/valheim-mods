@@ -1,6 +1,6 @@
 {
     "name": "Gravekeeper",
-    "version_number": "2.1.0",
+    "version_number": "2.1.1",
     "website_url": "https://github.com/mtnewton/valheim-mods",
     "description": "Configure to choose what is keep on death. Creates graves for larger inventories.",
     "dependencies": [

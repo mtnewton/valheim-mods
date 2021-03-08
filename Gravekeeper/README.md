@@ -2,18 +2,17 @@
 
 Configure to choose what is keep on death. Creates graves for larger inventories.  
 
-Configs to change what is kept on death:  
-- KeepAll
-- KeepHotbar
-- KeepEquipped
-- KeepConsumables
-- KeepAmmo
+[KeepInventory]  
+Configure to change what is kept on death.  
+Can keep all items on death, equipped items, hotbar, and specific item categories.  
+Take a look at the configuration section below to see what is available. These are the default values the config file will generate with.
 
+[Grave]  
 Spawns extra graves if the first will not hold everything in your inventory. Configurable, but recommended to keep on.  
 Option to spawn a grave with one stone in it if no graves would have spawned on death.  
-Option to delete all items on death. If KeepInventory is on, those items are still kept.
+Option to delete all items on death. Items KeepInventory would keep are still kept.
 
-Both sections can be disabled independently.
+Both sections can be enabled/disabled independently.
 
 ## Configuration  
 `<GameLoacation>/BepInEx/config/net.mtnewton.gravekeeper.cfg`
@@ -27,33 +26,50 @@ Both sections can be disabled independently.
 Enabled = true
 
 ## Keep all items on death.
+## If set to false, the below options can be set to true to allow for only keeping specific item types.
 # Setting type: Boolean
 # Default value: true
 KeepAll = true
 
-## Items on the hotbar are kept.
-## Only needed if [KeepInventory] KeepAll is false
-# Setting type: Boolean
-# Default value: false
 KeepHotbar = false
 
-## Equipped items are kept
-## Only needed if [KeepInventory] KeepAll is false
-# Setting type: Boolean
-# Default value: false
 KeepEquipped = false
 
-## Ammo is kept
-## Only needed if [KeepInventory] KeepAll is false
-# Setting type: Boolean
-# Default value: false
+KeepEquipment = false
+
+KeepOneHandedWeapons = false
+
+KeepTwoHandedWeapons = false
+
+KeepShields = false
+
+KeepBows = false
+
+KeepHelmets = false
+
+KeepChests = false
+
+KeepLegs = false
+
+KeepHands = false
+
+KeepShoulders = false
+
+KeepUtility = false
+
+KeepTorchs = false
+
 KeepAmmo = false
 
-## Consumables are kept
-## Only needed if [KeepInventory] KeepAll is false
-# Setting type: Boolean
-# Default value: false
+KeepMaterials = false
+
 KeepConsumables = false
+
+KeepTrophies = false
+
+KeepMisc = false
+
+KeepTools = false
 
 
 [Grave]
@@ -72,7 +88,6 @@ DeleteItems = false
 # Setting type: Boolean
 # Default value: false
 KeepGrave = false
-
 ```
 
 ## Installation  
@@ -81,6 +96,11 @@ KeepGrave = false
 3. Launching the game will generate a config file at `<GameLocation>\BepInEx\config`
 
 ## Changelog  
+- v2.1.1
+    - added extra options for KeepInventory
+        - Equipment - checks  `ItemDrop.ItemData.IsEquipable()`
+        - Most `ItemDrop.ItemData.ItemTypes`
+    - KeepInventory will keep quest items so they aren't accidentally deleted if the Grave DeleteItems option is true
 - v2.1.0
     - added back option to keep grave on death
     - option to delete items on death - item that match the KeepInventory flags are still kept

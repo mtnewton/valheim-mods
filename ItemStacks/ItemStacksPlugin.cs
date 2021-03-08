@@ -3,7 +3,8 @@ using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
 using System;
-using static ItemDrop.ItemData;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace ItemStacks
 {
@@ -11,20 +12,54 @@ namespace ItemStacks
     [HarmonyPatch]
     public class ItemStacksPlugin : BaseUnityPlugin
     {
-        private const string GUID = "net.mtnewton.itemstacks";
+        public const string GUID = "net.mtnewton.itemstacks";
 
-        private const string NAME = "ItemStacks";
+        public const string NAME = "ItemStacks";
 
-        private const string VERSION = "1.1.3";
+        public const string VERSION = "1.2.0";
 
-        private static ManualLogSource logger;
+        public static ManualLogSource logger;
 
-        private static ConfigFile config;
+        public static ConfigFile config;
+
+        private static ConfigEntry<bool> stackSizeEnabledConfig;
+        private static ConfigEntry<float> stackSizeMultiplierConfig;
+        private static ConfigEntry<bool> weightEnabledConfig;
+        private static ConfigEntry<float> weightMultiplierConfig;
+
+        private static readonly Dictionary<string, ItemTracker> itemTrackers = new Dictionary<string, ItemTracker>();
 
         void Awake()
         {
             logger = Logger;
             config = Config;
+
+            stackSizeEnabledConfig = config.Bind(NAME + ".ItemStackSize", "enabled", true,
+                new ConfigDescription(
+                    "Should item stack size be modified?",
+                    null,
+                    new ConfigurationManagerAttributes { Order = 1 }
+                )
+            );
+
+            weightEnabledConfig = config.Bind(NAME + ".ItemWeight", "enabled", true,
+                new ConfigDescription(
+                    "Should item weight be modified?",
+                    null,
+                    new ConfigurationManagerAttributes { Order = 1 }
+                )
+            );
+
+            stackSizeMultiplierConfig = config.Bind(NAME + ".ItemMultipliers", "stack_size_multiplier", 10f,
+                "Multiply the original item stack size by this value\n" +
+                "Minimum resulting stack size is 1\n" +
+                "Overwritten by individual item _stack_size values."
+            );
+
+            weightMultiplierConfig = config.Bind(NAME + ".ItemMultipliers", "weight_multiplier", .1f,
+                "Multiply the original item weight by this value\n" +
+                "Overwritten by individual item _weight values."
+            );
 
             Harmony harmony = new Harmony(GUID);
             harmony.PatchAll();
@@ -36,38 +71,40 @@ namespace ItemStacks
         [HarmonyPatch(typeof(ObjectDB), "Awake")]
         static void ModifyItemStackSizeAndWeight(ObjectDB __instance)
         {
-            foreach (ItemType type in (ItemType[])Enum.GetValues(typeof(ItemType)))
+            bool stackSizeEnabled = stackSizeEnabledConfig.Value;
+            float stackSizeMultiplier = Mathf.Clamp(stackSizeMultiplierConfig.Value, 0, int.MaxValue);
+
+            bool weightEnabled = weightEnabledConfig.Value;
+            float weightMultiplier = Mathf.Clamp(weightMultiplierConfig.Value, 0, int.MaxValue);
+
+            if (!(stackSizeEnabled || weightEnabled)) return;
+
+            foreach (ItemDrop.ItemData.ItemType type in (ItemDrop.ItemData.ItemType[])Enum.GetValues(typeof(ItemDrop.ItemData.ItemType)))
             {
-                ConfigEntry<bool> stackSizeEnabled = config.Bind(NAME + ".ItemStackSize", "enabled", true);
-                ConfigEntry<bool> weightEnabled = config.Bind(NAME + ".ItemWeight", "enabled", true);
-
-                if (!(stackSizeEnabled.Value || weightEnabled.Value))
-                {
-                    return;
-                }
-
                 foreach (ItemDrop item in __instance.GetAllItems(type, ""))
                 {
-                    if (item.m_itemData.m_shared.m_maxStackSize > 1 && item.m_itemData.m_shared.m_name.StartsWith("$item_"))
+                    if (item.m_itemData.m_shared.m_name.StartsWith("$item_"))
                     {
-                        string itemName = item.m_itemData.m_shared.m_name.Substring(6, item.m_itemData.m_shared.m_name.Length - 6);
+                        ItemTracker tracker = GetItemTracker(item);
 
-                        if (stackSizeEnabled.Value)
-                        {
-                            ConfigEntry<int> itemStackSizeConfig = config.Bind(NAME + ".ItemStackSize", itemName + "_stack_size", item.m_itemData.m_shared.m_maxStackSize * 10);
-                            item.m_itemData.m_shared.m_maxStackSize = itemStackSizeConfig.Value;
-                            logger.LogInfo(itemName + " - max stack size set to " + item.m_itemData.m_shared.m_maxStackSize);
-                        }
+                        if (stackSizeEnabled && (tracker.OriginalStackSize > 1)) tracker.SetStackSize(stackSizeMultiplier, item);
 
-                        if (weightEnabled.Value)
-                        {
-                            ConfigEntry<float> itemWeightConfig = config.Bind(NAME + ".ItemWeight", itemName + "_weight", item.m_itemData.m_shared.m_weight * 0.1f);
-                            item.m_itemData.m_shared.m_weight = itemWeightConfig.Value;
-                            logger.LogInfo(itemName + " - item weight set to " + item.m_itemData.m_shared.m_weight);
-                        }
+                        if (weightEnabled) tracker.SetWeight(weightMultiplier, item);
                     }
                 }
             }
+        }
+
+        private static ItemTracker GetItemTracker(ItemDrop item)
+        {
+            bool gotIt = itemTrackers.TryGetValue(item.m_itemData.m_shared.m_name, out ItemTracker tracker);
+            if (gotIt)
+            {
+                return tracker;
+            }
+            tracker = new ItemTracker(item);
+            itemTrackers.Add(item.m_itemData.m_shared.m_name, tracker);
+            return tracker;
         }
     }
 }

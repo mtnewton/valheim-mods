@@ -1,7 +1,6 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
-using System.Collections.Generic;
 
 namespace Gravekeeper
 {
@@ -13,7 +12,7 @@ namespace Gravekeeper
 
         public const string NAME = "Gravekeeper";
 
-        public const string VERSION = "2.1.0";
+        public const string VERSION = "2.1.1";
 
         private static ManualLogSource logger;
 
