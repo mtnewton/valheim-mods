@@ -66,94 +66,183 @@ namespace Gravekeeper
                 string name = "KeepInventory";
 
                 Enabled = config.Bind(name, "Enabled", true,
-                    "Should Gravekeeper modify what is kept on death?\n" +
-                    "Turn on the below options to change what is kept on death."
+                    new ConfigDescription(
+                        "Should Gravekeeper modify what is kept on death?\n" +
+                        "Turn on the below Keep options to change what is kept on death\n" +
+                        "(If using ConfigManager, the Keep options are Advanced Settings)",
+                        null,
+                        new ConfigurationManagerAttributes { Order = 100 }
+                    )
                 );
 
                 KeepAll = config.Bind(name, "KeepAll", true,
-                    "Keep all items on death.\n" +
-                    "If set to false, the below options can be set to true to allow for only keeping specific item types."
+                    new ConfigDescription(
+                        "Keep all items on death.\n" +
+                        "If set to false, the below options can be set to true to allow for only keeping specific item types.",
+                        null,
+                        new ConfigurationManagerAttributes { Order = 70, IsAdvanced = true }
+                    )
                 );
 
                 KeepHotbar = config.Bind(name, "KeepHotbar", false,
-                    "Items on the hotbar are kept on death"
+                    new ConfigDescription(
+                        "Items on the hotbar are kept on death",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepEquipped = config.Bind(name, "KeepEquipped", false,
-                    "Equipped items are kept on death"
+                    new ConfigDescription(
+                        "Equipped items are kept on death",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepEquipment = config.Bind(name, "KeepEquipment", false,
-                    "Any equip-able items are kept on death\n" +
-                    "Includes: OneHandedWeapon, TwoHandedWeapon, Shield, Bow, Helmet, Chest, Legs, Hands, Shoulder, Utility, Torch, Ammo"
+                    new ConfigDescription(
+                        "Any equip-able items are kept on death\n" +
+                        "Includes: OneHandedWeapon, TwoHandedWeapon, Shield, Bow, Helmet, Chest, Legs, Hands, Shoulder, Utility, Torch, Ammo",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepOneHandedWeapons = config.Bind(name, "KeepOneHandedWeapons", false,
-                    "One handed weapons are kept on death"
+                    new ConfigDescription(
+                        "One handed weapons are kept on death",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepTwoHandedWeapons = config.Bind(name, "KeepTwoHandedWeapons", false,
-                    "Two handed weapons are kept on death"
+                    new ConfigDescription(
+                        "Two handed weapons are kept on death",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepShields = config.Bind(name, "KeepShields", false,
-                    "Shields are kept on death"
+                    new ConfigDescription(
+                        "Shields are kept on death",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepBows = config.Bind(name, "KeepBows", false,
-                    "Bows are kept on death"
+                    new ConfigDescription(
+                        "Bows are kept on death",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepHelmets = config.Bind(name, "KeepHelmets", false,
-                    "Helmets are kept on death"
+                    new ConfigDescription(
+                        "Helmets are kept on death",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                  );
 
                 KeepChests = config.Bind(name, "KeepChests", false,
-                    "Chests are kept on death"
+                    new ConfigDescription(
+                        "Chests are kept on death",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepLegs = config.Bind(name, "KeepLegs", false,
-                    "Legs are kept on death"
+                    new ConfigDescription(
+                        "Legs are kept on death",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepHands = config.Bind(name, "KeepHands", false,
-                    "Hands are kept on death"
+                    new ConfigDescription(
+                        "Hands are kept on death",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepShoulders = config.Bind(name, "KeepShoulders", false,
-                    "Shoulders are kept on death"
+                    new ConfigDescription(
+                        "Shoulders are kept on death",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepUtility = config.Bind(name, "KeepUtility", false,
-                    "Utility items are kept on death (Wishbone, ...)"
+                    new ConfigDescription(
+                        "Utility items are kept on death (Wishbone, ...)",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepTorchs = config.Bind(name, "KeepTorchs", false,
-                    "Torches are kept on death"
+                    new ConfigDescription(
+                        "Torches are kept on death",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepAmmo = config.Bind(name, "KeepAmmo", false,
-                    "Ammo is kept on death"
+                    new ConfigDescription(
+                        "Ammo is kept on death",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepMaterials = config.Bind(name, "KeepMaterials", false,
-                    "Materials are kept on death (Wood, Stone, ...)"
+                    new ConfigDescription(
+                        "Materials are kept on death (Wood, Stone, ...)",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepConsumables = config.Bind(name, "KeepConsumables", false,
-                    "Consumables are kept on death"
+                    new ConfigDescription(
+                        "Consumables are kept on death",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepTrophies = config.Bind(name, "KeepTrophies", false,
-                    "Trophies are kept on death"
+                    new ConfigDescription(
+                        "Trophies are kept on death",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepMisc = config.Bind(name, "KeepMisc", false,
-                    "Misc items are kept on death (CryptKey, DragonEgg, ...)"
+                    new ConfigDescription(
+                        "Misc items are kept on death (CryptKey, DragonEgg, ...)",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
 
                 KeepTools = config.Bind(name, "KeepTools", false,
-                    "Tools are kept on death"
+                    new ConfigDescription(
+                        "Tools are kept on death",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
             }
         }
@@ -163,6 +252,27 @@ namespace Gravekeeper
             public static ConfigEntry<bool> Enabled { get; private set; }
             public static ConfigEntry<bool> KeepGrave { get; private set; }
             public static ConfigEntry<bool> DeleteItems { get; private set; }
+            public static ConfigEntry<bool> DeleteAll { get; private set; }
+            public static ConfigEntry<bool> DeleteHotbar { get; private set; }
+            public static ConfigEntry<bool> DeleteEquipped { get; private set; }
+            public static ConfigEntry<bool> DeleteEquipment { get; private set; }
+            public static ConfigEntry<bool> DeleteOneHandedWeapons { get; private set; }
+            public static ConfigEntry<bool> DeleteTwoHandedWeapons { get; private set; }
+            public static ConfigEntry<bool> DeleteShields { get; private set; }
+            public static ConfigEntry<bool> DeleteBows { get; private set; }
+            public static ConfigEntry<bool> DeleteHelmets { get; private set; }
+            public static ConfigEntry<bool> DeleteChests { get; private set; }
+            public static ConfigEntry<bool> DeleteLegs { get; private set; }
+            public static ConfigEntry<bool> DeleteHands { get; private set; }
+            public static ConfigEntry<bool> DeleteShoulders { get; private set; }
+            public static ConfigEntry<bool> DeleteUtility { get; private set; }
+            public static ConfigEntry<bool> DeleteTorchs { get; private set; }
+            public static ConfigEntry<bool> DeleteAmmo { get; private set; }
+            public static ConfigEntry<bool> DeleteMaterials { get; private set; }
+            public static ConfigEntry<bool> DeleteConsumables { get; private set; }
+            public static ConfigEntry<bool> DeleteTrophies { get; private set; }
+            public static ConfigEntry<bool> DeleteMisc { get; private set; }
+            public static ConfigEntry<bool> DeleteTools { get; private set; }
             public static int GraveWidth = 8;
             public static int GraveHeight = 4;
 
@@ -171,15 +281,200 @@ namespace Gravekeeper
                 string name = "Grave";
 
                 Enabled = config.Bind(name, "Enabled", true,
-                    "Should Gravekeeper modify how graves are created?"
-                );
-
-                DeleteItems = config.Bind(name, "DeleteItems", false,
-                    "Whatever is not kept by KeepInventory is deleted before grave creation."
+                    new ConfigDescription(
+                        "Should Gravekeeper modify how graves are created?\n" +
+                        "Enables this entire section",
+                        null,
+                        new ConfigurationManagerAttributes { Order = 100 }
+                    )
                 );
 
                 KeepGrave = config.Bind(name, "KeepGrave", false,
-                    "If no graves are to be created, create one with a stone in it."
+                    new ConfigDescription(
+                        "If no graves are to be created, create one with a stone in it.",
+                        null,
+                        new ConfigurationManagerAttributes { Order = 90 }
+                    )
+                );
+
+                DeleteItems = config.Bind(name, "DeleteItems", false,
+                    new ConfigDescription(
+                        "Items that would go to the grave are deleted\n" + 
+                        "Control what gets deleted with the below Delete options\n" +
+                        "(If using ConfigManager, the Delete options are Advanced Settings)",
+                        null,
+                        new ConfigurationManagerAttributes { Order = 80 }
+                    )
+                );
+
+                DeleteAll = config.Bind(name, "DeleteAll", true,
+                    new ConfigDescription(
+                        "All items are deleted from the grave\n" +
+                        "If set to false, the other Delete options can be set to true to allow for only deleting specific item types",
+                        null,
+                        new ConfigurationManagerAttributes { Order = 70, IsAdvanced = true }
+                    )
+                );
+
+                DeleteHotbar = config.Bind(name, "DeleteHotbar", false,
+                    new ConfigDescription(
+                        "Items on the hotbar are deleted from the grave",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteEquipped = config.Bind(name, "DeleteEquipped", false,
+                    new ConfigDescription(
+                    "Equipped items are deleted from the grave",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteEquipment = config.Bind(name, "DeleteEquipment", false,
+                    new ConfigDescription(
+                    "Any equip-able items are deleted from the grave\n" +
+                    "Includes: OneHandedWeapon, TwoHandedWeapon, Shield, Bow, Helmet, Chest, Legs, Hands, Shoulder, Utility, Torch, Ammo",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteOneHandedWeapons = config.Bind(name, "DeleteOneHandedWeapons", false,
+                    new ConfigDescription(
+                    "One handed weapons are deleted from the grave",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteTwoHandedWeapons = config.Bind(name, "DeleteTwoHandedWeapons", false,
+                    new ConfigDescription(
+                    "Two handed weapons are deleted from the grave",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteShields = config.Bind(name, "DeleteShields", false,
+                    new ConfigDescription(
+                    "Shields are deleted from the grave",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteBows = config.Bind(name, "DeleteBows", false,
+                    new ConfigDescription(
+                    "Bows are deleted from the grave",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteHelmets = config.Bind(name, "DeleteHelmets", false,
+                    new ConfigDescription(
+                    "Helmets are deleted from the grave",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                 );
+
+                DeleteChests = config.Bind(name, "DeleteChests", false,
+                    new ConfigDescription(
+                    "Chests are deleted from the grave",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteLegs = config.Bind(name, "DeleteLegs", false,
+                    new ConfigDescription(
+                    "Legs are deleted from the grave",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteHands = config.Bind(name, "DeleteHands", false,
+                    new ConfigDescription(
+                    "Hands are deleted from the grave",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteShoulders = config.Bind(name, "DeleteShoulders", false,
+                    new ConfigDescription(
+                    "Shoulders are deleted from the grave",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteUtility = config.Bind(name, "DeleteUtility", false,
+                    new ConfigDescription(
+                    "Utility items are deleted from the grave (Wishbone, ...)",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteTorchs = config.Bind(name, "DeleteTorchs", false,
+                    new ConfigDescription(
+                    "Torches are deleted from the grave",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteAmmo = config.Bind(name, "DeleteAmmo", false,
+                    new ConfigDescription(
+                    "Ammo is deleted from the grave",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteMaterials = config.Bind(name, "DeleteMaterials", false,
+                    new ConfigDescription(
+                    "Materials are deleted from the grave (Wood, Stone, ...)",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteConsumables = config.Bind(name, "DeleteConsumables", false,
+                    new ConfigDescription(
+                        "Consumables are deleted from the grave",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteTrophies = config.Bind(name, "DeleteTrophies", false,
+                    new ConfigDescription(
+                        "Trophies are deleted from the grave",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteMisc = config.Bind(name, "DeleteMisc", false,
+                    new ConfigDescription(
+                        "Misc items are deleted from the grave (CryptKey, DragonEgg, ...)",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
+                );
+
+                DeleteTools = config.Bind(name, "DeleteTools", false,
+                    new ConfigDescription(
+                        "Tools are deleted from the grave",
+                        null,
+                        new ConfigurationManagerAttributes { IsAdvanced = true }
+                    )
                 );
             }
         }

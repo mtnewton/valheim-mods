@@ -87,6 +87,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigurationManagerAttributes.cs" />
     <Compile Include="KeepInventory.cs" />
     <Compile Include="Grave.cs" />
     <Compile Include="Settings.cs" />
